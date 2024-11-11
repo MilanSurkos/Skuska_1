@@ -1,6 +1,4 @@
 # Skuska_1
 
-# Skuska nieco napisat
-- nieco napisat
-- znova nieco napisat
-- 
+-Začíname s kurzom o pythone
+teraz si ukazeme co mame robit
