@@ -27,3 +27,4 @@ příkazem `ssh-keygen.exe`
 ## Úkol 2 - Exception
 - ošetřit vstup
 - ošetřit dělení nulou
+- 
