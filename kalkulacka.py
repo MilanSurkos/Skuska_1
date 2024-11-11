@@ -1,4 +1,4 @@
-while True:
+def calc():
     try:
         prve_cislo = int(input("vloz prve cislo: "))
     except(ValueError):
@@ -31,3 +31,7 @@ while True:
         print(f"Zla operacia program bude ukonceny")
 
 
+try:
+    calc()
+except(Exception):
+    print("nezadal si spravne matematicky znak : + , - , / , * ")
