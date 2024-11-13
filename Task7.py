@@ -2,11 +2,13 @@ from copy import deepcopy
 
 class Budova:
     def __init__(self):
-        self.budova = []
+        self.patra = []
 
-    def pridej_patro(self, patra):
-        self.budova.append(patra)
+    def pridej_patro(self, patro):
+        self.patra.append(patro)
 
+    def get_copy(self):
+        return deepcopy(self)
 
 
 #NA TENTO KOD NESAHAT
