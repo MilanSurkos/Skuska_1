@@ -14,7 +14,7 @@ class Animal:
 
 
     def look(self):
-        print("the animal looks over yonder")
+        print("the animal looks over there")
 
     def breathe(self):
         print("the animal takes a breath of fresh air")
