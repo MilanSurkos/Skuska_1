@@ -1,4 +1,3 @@
-from abc import abstractmethod
 
 class Animal:
     total_weight = 0
@@ -8,13 +7,8 @@ class Animal:
         self.age = age
         Animal.total_weight += weight
 
-    @abstractmethod
-    def add_animal(cls):
-        return cls.total_weight
-
-
     def look(self):
-        print("the animal looks over there ")
+        print("the animal looks over there")
 
     def breathe(self):
         print("the animal takes a breath of fresh air")
