@@ -1,3 +1,5 @@
+from abc import abstractmethod
+
 class Animal:
     total_weight = 0
 
@@ -6,7 +8,7 @@ class Animal:
         self.age = age
         Animal.total_weight += weight
 
-    @classmethod
+    @abstractmethod
     def add_animal(cls):
         return cls.total_weight
 
