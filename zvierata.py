@@ -32,7 +32,7 @@ class Bird(Animal):
         print("the bird flies")
 
 
-class DomesticDog(Animal):
+class DomesticDog(Mammal):
     def __init__(self, weight, age, breed, coat_color):
         super().__init__(weight, age)
         self.breed = breed
@@ -49,9 +49,18 @@ class DomesticFish(Mammal, Fish):
     pass
 # ked trieda dedi z dvoch tried a zdiela rovnaku metodu, zavola sa ktora je specifikovana ako prva (mammal)
 
+
+
+#
+#
+#
 animal1 = Animal(300, 11)
 animal2 = Animal(420, 23)
 animal3 = Animal(570, 300)
+
+#
+#
+#
 
 print(Animal.total_weight)
 
