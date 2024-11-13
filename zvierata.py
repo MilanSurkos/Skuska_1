@@ -47,8 +47,7 @@ class DomesticDog(Animal):
 
 class DomesticFish(Mammal, Fish):
     pass
-# kdyz trida dedi z dvou trid a sdili stejnou metodu, zavola se ta ktera je specifikovana jako prvni (mammal)
-
+# ked trieda dedi z dvoch tried a zdiela rovnaku metodu, zavola sa ktora je specifikovana ako prva (mammal)
 
 animal1 = Animal(300, 11)
 animal2 = Animal(420, 23)
