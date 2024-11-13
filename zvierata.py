@@ -1,80 +1,65 @@
-class Animals:
+class Animal:
     total_weight = 0
-    animal_list = []
-    def __init__(self, species: str, weight: int, age: int):
-        self.species = species
+
+    def __init__(self, weight, age):
         self.weight = weight
         self.age = age
-        Animals.total_weight += self.weight
-        Animals.animal_list.append(self)
+        Animal.total_weight += weight
 
-    def set_weight(self):
-        Animals.total_weight -= self.weight
-        self.weight = int(input("zadejte aktualni vahu zvirete zaokrouhlenou na jednotky kg:"))
-        Animals.total_weight += self.weight
+    @classmethod
+    def add_animal(cls):
+        return cls.total_weight
 
 
     def look(self):
-        print(f"to je ale hezke {self.species}")
+        print("the animal looks over yonder")
 
-    def breath(self):
-        print(f"zhluboka se nadechni pane {self.species}")
-
-class Mammal(Animals):
-    def run(self):
-        print(f"utikej {self.species}")
+    def breathe(self):
+        print("the animal takes a breath of fresh air")
 
 
-class Bird(Animals):
-    def fly(self):
-        print(f"koukej odletet {self.species}")
-
-class Fish(Animals):
+class Fish(Animal):
     def swim(self):
-        print(f"odplav {self.species}")
-    def print_info(self):
-        print(f"tato ryba plave")
+        print("the fish swims")
 
-class Domestic_dog(Mammal):
-    def __init__(self,species, weight, age, breed: str, coat_color: str):
-        super().__init__(species, weight, age)
+    def run(self):
+        print("the fish runs")
+
+
+class Mammal(Animal):
+    def run(self):
+        print("the mammal runs")
+
+
+class Bird(Animal):
+    def fly(self):
+        print("the bird flies")
+
+
+class DomesticDog(Animal):
+    def __init__(self, weight, age, breed, coat_color):
+        super().__init__(weight, age)
         self.breed = breed
         self.coat_color = coat_color
-    def print_info(self):
-        print(f"teento pejsek ma rasu {self.breed}")
+
+    def bark(self):
+        print("the dog barks")
+
+    def retrieve(self):
+        print("the dog retrieves the ball")
 
 
-class Pso_Ryba(Fish, Domestic_dog):
-    def __str__(self):
-        return f"to je divne zvire. Jmenuje se {self.species}, vazi {self.weight}, je mu {self.age} let a je rasy {self.breed}. A navic je {self.coat_color}"
-
-podivnost = Pso_Ryba("divnej",56, 22, "kokr", "ruzovy")
+class DomesticFish(Mammal, Fish):
+    pass
+# kdyz trida dedi z dvou trid a sdili stejnou metodu, zavola se ta ktera je specifikovana jako prvni (mammal)
 
 
-vrabec = Bird("vrabec", 155, 2)
-velryba = Mammal("keporkak", 1252, 58)
-podivnost.print_info()
-print(podivnost)
+animal1 = Animal(300, 11)
+animal2 = Animal(420, 23)
+animal3 = Animal(570, 300)
 
-print(Animals.total_weight)
-# velryba.set_weight()
-print(Animals.total_weight)
+print(Animal.total_weight)
 
-print(Animals.animal_list)
-
-for weight in Animals.animal_list:
-    print(weight)
-
-
-
-#
-#
-#
-#
-# zvire1 = Animals("prase", 150, 6)
-#
-# zvire1.look()
-# zvire1.breath()
-#
-# zvire5 = Domestic_dog("pes",15, 5, "vlcak", "modra")
-#
+animals = [animal1, animal2, animal3]
+for animal in animals:
+    print(f"Zviera má {animal.age} rokov  a vazi {animal.weight}")
