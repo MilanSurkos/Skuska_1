@@ -114,4 +114,4 @@ ENG
 ## Task 8b - password
 - Napište dekorátor `@with_password`. Funkce, které tento dekorátor mají, se vykonají pouze, pokud uživatel správně zadá heslo (využijte input()).
 
-![img.png](img.png)
+![Ms SC.png](Ms .png)
