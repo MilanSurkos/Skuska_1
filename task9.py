@@ -5,6 +5,7 @@ def with_password(func):
 
         if input("zadaj heslo: ") == password:
             print("Zadal si spravne heslo")
+            return func(a,b)
         else:
             print("Zadal si nespravne heslo")
     return nova_funkcia
