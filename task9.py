@@ -7,7 +7,7 @@ def with_password(func):
             print("Zadal si spravne heslo")
             return func(a,b)
         else:
-            print("Zadal si nespravne heslo")
+            return"Zadal si nespravne heslo"
     return nova_funkcia
 
 
