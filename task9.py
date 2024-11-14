@@ -1,17 +1,17 @@
 def with_password(func):
     password = "cerdo"
 
-    def nova_funkcia():
+    def nova_funkcia(a,b):
 
         if input("zadaj heslo: ") == password:
             print("Zadal si spravne heslo")
         else:
             print("Zadal si nespravne heslo")
-    return nova_funkcia()
+    return nova_funkcia
 
 
 @with_password
 def sucet(a,b):
     return a+b
 
-print(sucet(5, 6))
+print(sucet(7,9))
