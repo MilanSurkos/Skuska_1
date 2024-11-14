@@ -15,4 +15,9 @@ def with_password(func):
 def sucet(a,b):
     return a+b
 
+@with_password
+def rozdiel(a,b):
+    return a-b
+
 print(sucet(7,9))
+print(rozdiel(8,4))
