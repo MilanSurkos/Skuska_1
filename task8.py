@@ -1,24 +1,16 @@
-from dataclasses import dataclass
+def vyprintuj_a_pust(func):
+    def nova_funkce(a,b):
+        print(f"pouštíme funkci {func.__name__} s parametry {a}, {b}")
+        return func(a,b)
+    return nova_funkce
 
+@vyprintuj_a_pust
+def soucet(a,b):
+    return a+b
 
-class Zapas:
-    def __init__(self, domaci, hoste, doba):
-        self.domaci = domaci
-        self.hoste = hoste
-        self.doba = doba
+@vyprintuj_a_pust
+def rozdil(a,b):
+    return a-b
 
-
-@dataclass
-class DZapas:
-    domaci : str
-    hoste : str
-    doba : int
-
-    def print_doma(self):
-        print(self.doba)
-
-eufa = DZapas("Sparta", "Slavie", 93)
-cl = Zapas("Liverpool", "Arsenal", 87)
-
-print(f"{eufa}")
-
+print(soucet(3,5))
+print(rozdil(3,5))
