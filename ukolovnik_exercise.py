@@ -14,71 +14,48 @@
 
 import csv
 
-tasks_list = []
+notes = []
 
 
-def pridat_task():
-    task = input("Zadaj task: ")
-    tasks_list.append(task)
-    print(f"Task {task} bol pridany do zoznamu.")
+def pridat_task(notes):
+    notes.append(input("Vloz task: "))
 
-def vypisat_task():
-    if tasks_list:
-        print("Tvoje tasky: ")
-        for i, task in enumerate(tasks_list, start=1):
-            print(f"{i}. {task}.")
+def vypisat_task(notes):
+    print(notes)
 
 
-def delete_task():
-    vypisat_task()
-    try:
-        cislo = int(input("Zadajte číslo tasku na zmazanie: "))
-        if 1 <= cislo <= len(tasks_list):
-            zmazane = tasks_list.pop(cislo - 1)
-            print(f"Task {zmazane} bol zmazany.")
-        else:
-            print("Nesprávne číslo.")
-    except ValueError:
-        print("Zadajte platné číslo")
+def delete_task(notes):
+    print(notes)
+    zmazanie = int(input("Zadaj cislo riadku na zmazanie: ")) - 1
+    del notes[zmazanie]
 
 
 
-def upravit_task():
-    vypisat_task()
-    try:
-        cislo = int(input("Zadajte číslo tasku na upravenie: "))
-        if 1 <= cislo <= len(tasks_list):
-            novy_task = input("Zadaj nový task: ")
-            tasks_list[cislo -1] = novy_task
-            print(f"Task číslo {cislo} bol upravený na {novy_task}")
-        else:
-            print("Nesprávne číslo")
-    except ValueError:
-        print("Zadajte platné číslo")
+def upravit_task(notes):
+    print(notes)
+    poradie = int(input("Zadaj poradie riadku: ")) - 1
+    if 1 <= poradie <= len(notes):
+        novy_task = input("Zadaj novy task: ")
+        notes[poradie] = novy_task
 
 #ulozit do CSV
-def ulozit_task_do_csv():
-    nazov_tasku = input("Zadaj názov súboru na uloženie: ")
-    try:
-        with open(nazov_tasku, "w", encoding="utf-8") as subor:
-            writer = csv.writer(subor)
-            for task in tasks_list:
-                writer.writerow([task])
-                print(f"Task list bol ulozený do súboru {nazov_tasku}")
-    except Exception as e:
-        print(f"Chyba pri ukladaní: {e}")
+def ulozit_task_do_csv(notes):
+    file = input("Zadaj nazov suboru s koncovkou .csv: ")
+    file_csv = file + ".csv"
+    with open(file_csv, "r", encoding="utf-8") as new_file:
+        writer = csv.writer(new_file)
+        for line in notes:
+            writer.writerow([line])
 
 #nacitat zo CSV
-def nacitat_task_z_csv():
-    nazov_tasku = input("Zadajte názov súboru na načítanie: ")
-    try:
-        with open(nazov_tasku, "r", encoding="utf-8") as subor:
-            reader = csv.reader(subor)
-            global tasks_list
-            tasks_list = [riadok[0] for riadok in reader]
-            print(f"Task list bol načítaný zo súboru {nazov_tasku}.")
-    except Exception as e:
-        print(f"Chyba pri načítaný: {e} ")
+def nacitat_task_z_csv(notes):
+    file = input("Zadaj názov súboru na načítanie s koncovkou .csv: ")
+    file_csv = file + ".csv"
+    with open(file_csv, "r", encoding="utf-8") as save_file:
+        reader = csv.reader(save_file)
+        for line in reader:
+            notes.append(line)
+        print(notes)
 
 
 
@@ -96,17 +73,17 @@ while True:
 
     choice = input("Vyber moznosť: ")
     if choice == "1":
-        pridat_task()
+        pridat_task(notes)
     elif choice == "2":
-        vypisat_task()
+        vypisat_task(notes)
     elif choice == "3":
-        delete_task()
+        delete_task(notes)
     elif choice == "4":
-        upravit_task()
+        upravit_task(notes)
     elif choice == "5":
-        ulozit_task_do_csv()
+        ulozit_task_do_csv(notes)
     elif choice == "6":
-        nacitat_task_z_csv()
+        nacitat_task_z_csv(notes)
     elif choice == "7":
         print("Ukoncujem program")
         break
