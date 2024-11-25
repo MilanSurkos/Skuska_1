@@ -40,16 +40,16 @@ def upravit_task(notes):
 
 #ulozit do CSV
 def ulozit_task_do_csv(notes):
-    file = input("Zadaj nazov suboru s koncovkou .csv: ")
+    file = input("Zadaj nazov suboru na uloženie: ")
     file_csv = file + ".csv"
-    with open(file_csv, "r", encoding="utf-8") as new_file:
+    with open(file_csv, "a", encoding="utf-8") as new_file:
         writer = csv.writer(new_file)
         for line in notes:
-            writer.writerow([line])
+            writer.writerow(line)
 
 #nacitat zo CSV
 def nacitat_task_z_csv(notes):
-    file = input("Zadaj názov súboru na načítanie s koncovkou .csv: ")
+    file = input("Zadaj názov súboru na načítanie: ")
     file_csv = file + ".csv"
     with open(file_csv, "r", encoding="utf-8") as save_file:
         reader = csv.reader(save_file)
