@@ -9,6 +9,9 @@
 # Uložit poznámky do souboru .csv (budeme vyzváni do jakého souboru)
 # (Volitelně uložení i přes pickle)
 # Načíst poznámky ze souboru .csv (budeme vyzváni z jakého souboru)
+
+
+
 import csv
 
 tasks_list = []
@@ -53,6 +56,7 @@ def upravit_task():
     except ValueError:
         print("Zadajte platné číslo")
 
+#ulozit do CSV
 def ulozit_task_do_csv():
     nazov_tasku = input("Zadaj názov súboru na uloženie: ")
     try:
@@ -64,6 +68,7 @@ def ulozit_task_do_csv():
     except Exception as e:
         print(f"Chyba pri ukladaní: {e}")
 
+#nacitat zo CSV
 def nacitat_task_z_csv():
     nazov_tasku = input("Zadajte názov súboru na načítanie: ")
     try:
