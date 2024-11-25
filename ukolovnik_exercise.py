@@ -79,6 +79,7 @@ def nacitat_task_z_csv():
 
 
 while True:
+
     print("\nWelcome to task-master")
     print("1. Pridat task")
     print("2. Vypísať všetky tasky")
