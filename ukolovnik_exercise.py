@@ -34,7 +34,7 @@ def delete_task(notes):
 def upravit_task(notes):
     print(notes)
     poradie = int(input("Zadaj poradie riadku: ")) - 1
-    if 1 <= poradie <= len(notes):
+    if 0 <= poradie <= len(notes):
         novy_task = input("Zadaj novy task: ")
         notes[poradie] = novy_task
 
