@@ -8,7 +8,7 @@ class TimeMeasurment:
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.end_time = time.time()  # Zaznam konca casu
         self.duration = self.end_time - self.start_time  # vypocet trvania
-        print(f"Blok trval {self.duration:.2f} sekund.")  # Print trvani v sekundach
+        print(f"Blok trval {self.duration} sekund.")  # Print trvani v sekundach
 
 
 with TimeMeasurment() as t:
