@@ -2,10 +2,11 @@ import time
 
 class TimeMeasurment:
     def __enter__(self):
+        print("Spúštam výpočet: ")
         self.start_time = time.time()  # zaznam zaciatku casu
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, a, b, c):
         self.end_time = time.time()  # Zaznam konca casu
         self.duration = self.end_time - self.start_time  # vypocet trvania
         print(f"Blok trval {self.duration} sekund.")  # Print trvani v sekundach
