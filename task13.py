@@ -23,29 +23,28 @@ def print_scitanie(num):
     sucet = 0
     for i in range(num):
         sucet = sucet + i
-        print(f"Scitanie: {sucet}")    # A function that returns the third power of a number given as a parameter
-    time.sleep(3)
-
+        # A function that returns the third power of a number given as a parameter
+    return sucet
 
 def print_nasobenie(num):
     nasobenie = 0
     for i in range(num):
         nasobenie = i ** 2
-        print(f"Nasobenie: {nasobenie}")
+    return nasobenie
                                         # A function that returns the square of the number given as a parameter
 
 
 if __name__ == "__main__":
     # creating threads
     t1 = ThreadWithReturnValue(target=print_nasobenie, args=(100,))
-    t2 = threading.Thread(target=print_scitanie, args=(1000000,))
+    t2 = ThreadWithReturnValue(target=print_scitanie, args=(1000000,))
 
     # starting threads
     t1.start()
     t2.start()
 
     # waiting until both threads have finished executing before executing further code
-    print(t1.join())
-    t2.join()
+    print(f"Vysledok nasobenia: {t1.join()}")
+    print(f"Vysledok scitania: {t2.join()}")
 
     print("Done!")
