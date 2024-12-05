@@ -34,7 +34,8 @@ def print_nasobenie(num):
                                         # A function that returns the square of the number given as a parameter
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":     #K čomu to je ? ..... sa vykona len ked pustam tento subor task 13 ...
+                                                        # ked niekde ho importujem tak sa to nestpusti
     # creating threads
     t1 = ThreadWithReturnValue(target=print_nasobenie, args=(100,))
     t2 = ThreadWithReturnValue(target=print_scitanie, args=(1000000,))
